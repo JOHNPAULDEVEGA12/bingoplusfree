@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waiting...</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading-circle {
+      border: 10px solid #f3f3f3;
+      border-top: 10px solid #ff6f61;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .countdown {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="loading-container">
+    <!-- Loading Circle -->
+    <div class="loading-circle"></div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown" id="countdown">60</div>
+
+    <p>Please wait while we process your request...</p>
+  </div>
+
+  <script>
+    let countdownTime = 30; // 1 minute
+    const countdownElement = document.getElementById('countdown');
+
+    // Update the countdown every second
+    const countdownInterval = setInterval(() => {
+      countdownTime--;
+      countdownElement.textContent = countdownTime;
+
+      // Once the countdown reaches 0, redirect to finish.html
+      if (countdownTime === 0) {
+        clearInterval(countdownInterval);
+        window.location.href = 'finish.html';
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>

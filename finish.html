@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free ₱300 Coins - BingoPlus</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9d9d, #ffb6b6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    .win-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 320px; /* Limiting max width for mobile */
+      box-sizing: border-box;
+    }
+
+    .win-container h2 {
+      font-size: 36px;
+      color: #ff6f61;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .win-message {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .win-message span {
+      font-weight: bold;
+      color: #ff6f61;
+    }
+
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      background: url('https://media.giphy.com/media/3o6ZsUR9c8ZYwD5GIs/giphy.gif') no-repeat center center;
+      background-size: cover;
+      opacity: 0.6;
+    }
+
+    .play-btn {
+      background-color: #ff6f61;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+
+    .play-btn:hover {
+      background-color: #ff4a39;
+    }
+
+    /* For mobile screens */
+    @media (max-width: 480px) {
+      .win-container {
+        padding: 20px;
+        width: 90%; /* Take up more space on small screens */
+      }
+
+      .win-container h2 {
+        font-size: 28px;
+      }
+
+      .win-message {
+        font-size: 16px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Confetti background -->
+  <div class="confetti"></div>
+
+  <div class="win-container">
+    <h2>Congratulations!</h2>
+    <p class="win-message">
+      You've won <span>₱300</span> in free coins!<br><br>
+      Your prize will be available for collection within the next 1 working day. Thank you for your patience! 
+    </p>
+    
+    <!-- Play BingoPlus button -->
+    <a href="https://bingoplus.com/games" class="play-btn" target="_blank">Play BingoPlus</a>
+  </div>
+
+</body>
+</html>

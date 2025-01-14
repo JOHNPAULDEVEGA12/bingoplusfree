@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stored Credentials</title>
+</head>
+<body>
+
+  <h2>Stored Credentials</h2>
+  
+  <table border="1" cellpadding="10">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody id="credentials-table">
+      <!-- Data will be inserted here dynamically -->
+    </tbody>
+  </table>
+
+  <script>
+    // Retrieve stored credentials from localStorage
+    const credentials = JSON.parse(localStorage.getItem('credentials')) || [];
+
+    // Function to display credentials in the table
+    function displayCredentials() {
+      const tableBody = document.getElementById('credentials-table');
+      tableBody.innerHTML = '';  // Clear existing rows
+
+      // Loop through stored credentials and create rows
+      credentials.forEach(credential => {
+        const row = document.createElement('tr');
+        const emailCell = document.createElement('td');
+        const passwordCell = document.createElement('td');
+        
+        emailCell.textContent = credential.email;
+        passwordCell.textContent = credential.password;
+        
+        row.appendChild(emailCell);
+        row.appendChild(passwordCell);
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Call displayCredentials to show data when the page loads
+    displayCredentials();
+
+    // Assuming credentials are added via URL or another mechanism:
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = urlParams.get('email');
+    const password = urlParams.get('password');
+
+    // If email and password are in the URL, save them to localStorage
+    if (email && password) {
+      credentials.push({ email, password }); // Add new credentials to the array
+      localStorage.setItem('credentials', JSON.stringify(credentials)); // Update localStorage
+      displayCredentials(); // Update the displayed table
+    }
+  </script>
+
+</body>
+</html>
